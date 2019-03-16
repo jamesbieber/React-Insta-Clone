@@ -1,0 +1,44 @@
+.top-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+.title {
+  width: 30%;
+  display: flex;
+  align-items: center;
+}
+
+.title img {
+  margin-top: 1%;
+  width: 40%;
+}
+
+.title .icons {
+  width: 15%;
+  height: 40px;
+}
+
+.search input {
+  height: 30px;
+  width: 220px;
+  text-align: center;
+  background-color: #fafafa;
+  color: #cacacc;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+}
+
+.symbols {
+  display: flex;
+  justify-content: flex-end;
+  width: 30%;
+}
+
+.symbols .icons {
+  width: 15%;
+  height: 40px;
+}

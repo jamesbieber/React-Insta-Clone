@@ -1,0 +1,29 @@
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dcdcdc;
+  padding-bottom: 2%;
+}
+
+.symbols-comments {
+  margin-bottom: 1.5%;
+  margin-left: 1%;
+  margin-top: 2%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.likes {
+  margin-left: 1%;
+  margin-bottom: 1.5%;
+}
+
+input {
+  margin: 0 auto;
+  width: 98%;
+  height: 30px;
+  margin-top: 3%;
+  background-color: #fafafa;
+  color: #cacacc;
+  border: 1px solid #dcdcdc;
+}

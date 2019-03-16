@@ -1,0 +1,19 @@
+.comment {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5%;
+}
+
+.comment h3 {
+  margin: 0;
+  margin-left: 1%;
+  margin-right: 1%;
+  font-size: 16px;
+  color: #26263a;
+}
+
+.comment p {
+  margin: 0;
+  font-size: 16px;
+  color: #3e3628;
+}
