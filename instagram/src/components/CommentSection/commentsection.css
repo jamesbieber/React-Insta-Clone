@@ -18,11 +18,16 @@
   margin-bottom: 1.5%;
 }
 
+.comment:hover {
+  opacity: 0.5;
+}
+
 input {
   margin: 0 auto;
   width: 98%;
   height: 30px;
   margin-top: 3%;
+  padding-left: 2%;
   background-color: #fafafa;
   color: #cacacc;
   border: 1px solid #dcdcdc;

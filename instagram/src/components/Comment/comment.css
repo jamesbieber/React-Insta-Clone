@@ -4,6 +4,11 @@
   margin-bottom: 0.5%;
 }
 
+.comment:hover {
+  opacity: 0.2;
+  cursor: pointer;
+}
+
 .comment h3 {
   margin: 0;
   margin-left: 1%;

@@ -27,7 +27,8 @@ const PostContainer = props => {
 PostContainer.propTypes = {
   props: PropTypes.arrayOf(
     PropTypes.shape({
-      post: PropTypes.string
+      posts: PropTypes.arrayOf(PropTypes.object),
+      post: PropTypes.arrayOf(PropTypes.object)
     })
   )
 };

@@ -1,19 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-
 import "./app.css";
-import data from "./dummy-data";
 
+import data from "./dummy-data";
 import SearchBar from "./components/SearchBar/SearchBar";
 import PostContainer from "./components/PostContainer/PostContainer";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      posts: data
-    };
-  }
+  state = {
+    posts: data
+  };
 
   render() {
     return (
