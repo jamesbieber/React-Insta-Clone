@@ -6,32 +6,48 @@ import "./commentsection.css";
 import { MessageCircle, Heart } from "react-feather";
 
 class CommentSection extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      comments: [],
-      likes: ""
-    };
-  }
+  state = {
+    comments: [],
+    likes: "",
+    comment: ""
+  };
+
+  inputChangeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
 
   componentDidMount() {
-    this.setState({ comments: props.comments });
-    this.setState({ likes: props.likes });
+    this.setState({
+      comments: this.props.comments,
+      likes: this.props.likes
+    });
   }
 
-  addNewComment = (e, index) => {
-    e.preventDefault();
-    let newComment = {
-      username: this.state
-    };
+  addNewComment = event => {
+    event.preventDefault();
+    this.setState({
+      ...this.state.likes,
+      comments: [
+        ...this.state.comments,
+        {
+          username: "Jamesbieber",
+          text: this.state.comment
+        }
+      ],
+      comment: ""
+    });
+  };
+
+  incrementLikes = event => {
+    this.setState({ likes: this.state.likes + 1 });
   };
 
   render() {
     return (
       <div className="comment-section">
         <div className="symbols-comments">
-          <Heart />
-          <MessageCircle />
+          <Heart id="heart-symbol" onClick={this.incrementLikes} />
+          <MessageCircle id="comment-symbol" />
         </div>
 
         <h3 className="likes">{this.state.likes} likes</h3>
@@ -41,7 +57,13 @@ class CommentSection extends React.Component {
         })}
 
         <form onSubmit={this.addNewComment}>
-          <input type="text" placeholder="Add a comment..." />
+          <input
+            type="text"
+            placeholder="Add a comment..."
+            name="comment"
+            value={this.state.comment}
+            onChange={this.inputChangeHandler}
+          />
           <button>Add Comment</button>
         </form>
       </div>
