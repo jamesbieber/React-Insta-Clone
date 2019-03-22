@@ -1,39 +1,42 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import "./app.css";
 
 import data from "./dummy-data";
-import SearchBar from "./components/SearchBar/SearchBar";
-import PostContainer from "./components/PostContainer/PostContainer";
+import PostPage from "./components/PostContainer/PostPage";
+import withAuthenticate from "./authentication/withAuthenticate";
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostPage);
 
 class App extends Component {
   state = {
-    posts: data
+    posts: []
   };
+
+  searchHandler = event => {
+    if (event.target.value.length > 0) {
+      let searchPosts = this.state.posts.filter(post => {
+        if (post.username.includes(event.target.value)) {
+          return post;
+        }
+      });
+      this.setState({ posts: searchPosts });
+    } else {
+      this.setState({ posts: data });
+    }
+  };
+
+  componentDidMount() {
+    this.setState({ posts: data });
+  }
 
   render() {
     return (
       <div className="App">
-        <SearchBar />
-        {this.state.posts.map((post, index) => {
-          return (
-            <PostContainer posts={this.state.posts} key={index} post={post} />
-          );
-        })}
+        <ComponentFromWithAuthenticate className="post-page" />
+        {/* <PostPage className="post-page" searchHandler={this.searchHandler} posts={this.state.posts} /> */}
       </div>
     );
   }
 }
-
-App.propTypes = {
-  posts: PropTypes.arrayOf(
-    PropTypes.shape({
-      username: PropTypes.string.isRequired,
-      thumbnailUrl: PropTypes.string.isRequired,
-      imageUrl: PropTypes.string.isRequired,
-      likes: PropTypes.number.isRequired
-    })
-  )
-};
 
 export default App;

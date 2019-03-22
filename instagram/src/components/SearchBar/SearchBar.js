@@ -3,7 +3,7 @@ import "./searchbar.css";
 
 import { Camera, Heart, User, Compass } from "react-feather";
 
-const SearchBar = () => {
+const SearchBar = props => {
   return (
     <div className="top-bar">
       <div className="title">
@@ -12,7 +12,11 @@ const SearchBar = () => {
       </div>
 
       <div className="search">
-        <input type="text" placeholder="Search..." />
+        <input
+          type="text"
+          placeholder="Search..."
+          onChange={props.searchHandler}
+        />
       </div>
 
       <div className="symbols">
