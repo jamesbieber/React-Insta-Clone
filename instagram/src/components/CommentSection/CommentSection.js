@@ -1,9 +1,67 @@
 import React from "react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 
 import Comment from "../Comment/Comment";
 import "./commentsection.css";
 import { MessageCircle, Heart } from "react-feather";
+
+const Comments = styled.div`
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dcdcdc;
+  padding-bottom: 2%;
+`;
+
+const SymbolsComments = styled.div`
+  margin-bottom: 1.5%;
+  margin-left: 1%;
+  margin-top: 2%;
+  display: flex;
+  justify-content: flex-start;
+`;
+
+const Likes = styled.h3`
+  margin-left: 1%;
+  margin-bottom: 1.5%;
+`;
+
+const Form = styled.form`
+  display: flex;
+  align-content: center;
+  justify-content: center;
+
+  button {
+    cursor: pointer;
+    margin-top: 3%;
+    padding-top: 1.2%;
+    padding-bottom: 1.1%;
+    text-align: center;
+    height: 100%;
+    width: 20%;
+  }
+
+  input {
+    margin: 0 auto;
+    width: 98%;
+    height: 30px;
+    margin-top: 3%;
+    padding-left: 2%;
+    background-color: #fafafa;
+    color: #cacacc;
+    border: 1px solid #dcdcdc;
+  }
+`;
+
+const Button = styled.button`
+  cursor: pointer;
+  margin-top: 3%;
+  padding-top: 1.2%;
+  padding-bottom: 1.1%;
+  text-align: center;
+  height: 100%;
+  width: 20%;
+`;
 
 class CommentSection extends React.Component {
   state = {
@@ -44,19 +102,19 @@ class CommentSection extends React.Component {
 
   render() {
     return (
-      <div className="comment-section">
-        <div className="symbols-comments">
+      <Comments>
+        <SymbolsComments>
           <Heart id="heart-symbol" onClick={this.incrementLikes} />
           <MessageCircle id="comment-symbol" />
-        </div>
+        </SymbolsComments>
 
-        <h3 className="likes">{this.state.likes} likes</h3>
+        <Likes>{this.state.likes} likes</Likes>
 
         {this.state.comments.map((comment, index) => {
           return <Comment comment={comment} key={index} />;
         })}
 
-        <form onSubmit={this.addNewComment}>
+        <Form onSubmit={this.addNewComment}>
           <input
             type="text"
             placeholder="Add a comment..."
@@ -64,9 +122,9 @@ class CommentSection extends React.Component {
             value={this.state.comment}
             onChange={this.inputChangeHandler}
           />
-          <button>Add Comment</button>
-        </form>
-      </div>
+          <Button>Add Comment</Button>
+        </Form>
+      </Comments>
     );
   }
 }

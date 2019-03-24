@@ -13,6 +13,8 @@ class PostPage extends React.Component {
 
   componentDidMount() {
     this.setState({ posts: data });
+
+    localStorage.removeItem("username");
   }
 
   searchHandler = event => {

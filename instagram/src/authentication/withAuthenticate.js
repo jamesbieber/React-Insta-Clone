@@ -1,15 +1,26 @@
 import React from "react";
+import "../app.css";
 
-const withAuthenticate = WrappedComponent => {
-  return class extends React.Component {
+import Login from "../components/Login/Login";
+
+const withAuthenticate = PostPage => Login =>
+  class withAuthenticate extends React.Component {
+    state = {
+      loggedIn: false
+    };
+
+    componentDidMount() {
+      if (localStorage.getItem("username") === null) {
+        this.setState({ loggedIn: false });
+      } else {
+        this.setState({ loggedIn: true });
+      }
+    }
+
     render() {
-      return (
-        <div>
-          <WrappedComponent />
-        </div>
-      );
+      if (this.state.loggedIn === true) return <PostPage />;
+      return <Login />;
     }
   };
-};
 
 export default withAuthenticate;

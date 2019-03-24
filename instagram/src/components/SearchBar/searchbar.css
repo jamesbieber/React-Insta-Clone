@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   border-bottom: 1px solid #dcdcdc;
+  background-color: #ffffff;
 }
 
 .title {
@@ -13,8 +14,11 @@
 }
 
 .title img {
-  margin-top: 1%;
-  width: 40%;
+  border-left: 1px solid black;
+  padding-left: 1.5%;
+  margin-top: 2%;
+  margin-bottom: 1%;
+  width: 37%;
 }
 
 .title .icons {
@@ -23,7 +27,7 @@
 }
 
 .search input {
-  height: 30px;
+  height: 22px;
   width: 220px;
   text-align: center;
   background-color: #fafafa;
@@ -39,6 +43,7 @@
 }
 
 .symbols .icons {
+  cursor: pointer;
   width: 15%;
   height: 40px;
 }

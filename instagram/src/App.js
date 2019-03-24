@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "./app.css";
-
 import data from "./dummy-data";
+
 import PostPage from "./components/PostContainer/PostPage";
 import withAuthenticate from "./authentication/withAuthenticate";
+import Login from "./components/Login/Login";
 
-const ComponentFromWithAuthenticate = withAuthenticate(PostPage);
+const ComponentFromWithAuthenticate = withAuthenticate(PostPage)(Login);
 
 class App extends Component {
   state = {
@@ -31,9 +32,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
+      <div>
         <ComponentFromWithAuthenticate className="post-page" />
-        {/* <PostPage className="post-page" searchHandler={this.searchHandler} posts={this.state.posts} /> */}
       </div>
     );
   }
