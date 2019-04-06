@@ -1,0 +1,64 @@
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dcdcdc;
+  padding-bottom: 2%;
+}
+
+.symbols-comments {
+  margin-bottom: 1.5%;
+  margin-left: 1%;
+  margin-top: 2%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.likes {
+  margin-left: 1%;
+  margin-bottom: 1.5%;
+}
+
+.comment:hover {
+  opacity: 0.5;
+}
+
+form {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+}
+
+form button {
+  cursor: pointer;
+  margin-top: 3%;
+  padding-top: 1.2%;
+  padding-bottom: 1.1%;
+  text-align: center;
+  height: 100%;
+  width: 20%;
+}
+
+input {
+  margin: 0 auto;
+  width: 98%;
+  height: 30px;
+  margin-top: 3%;
+  padding-left: 2%;
+  background-color: #fafafa;
+  color: #cacacc;
+  border: 1px solid #dcdcdc;
+}
+
+#comment-symbol:hover {
+  cursor: pointer;
+  color: #99d3fe;
+}
+
+#heart-symbol {
+  margin-right: 1%;
+}
+
+#heart-symbol:hover {
+  cursor: pointer;
+  color: red;
+}
